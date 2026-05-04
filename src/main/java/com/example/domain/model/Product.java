@@ -29,7 +29,9 @@ public class Product {
         }
     }
 
-
+    public boolean isInStock() {
+        return this.stock != null && this.stock > 0;
+    }
     public Product withUpdatedInfo(String name, String description, BigDecimal price, Integer stock) {
         return this.toBuilder()
                 .name(name)

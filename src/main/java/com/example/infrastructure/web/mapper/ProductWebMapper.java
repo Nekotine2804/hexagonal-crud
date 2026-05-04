@@ -7,12 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 
-
+@Mapper(componentModel = "spring")
 public interface ProductWebMapper {
 
     @Mapping(target = "id", ignore = true)
     Product toDomain(ProductRequest request);
 
-    @Mapping(target = "inStock", expression = "java(product.isInStock())")
     ProductResponse toResponse(Product product);
 }
